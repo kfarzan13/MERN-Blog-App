@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import React  from 'react';
 import { Navigate, useParams } from 'react-router';
 import Editor from '../components/Editor';
@@ -10,6 +10,18 @@ const EditPost = () => {
     const [content, setContent] = useState('');
     const [files, setFiles] = useState('');
     const [redirect, setRedirect] = useState(false);
+
+    useEffect(() => {
+      fetch('http://localhost:4000/post/' + id)
+      .then(response => {
+        response.json().then(postInfo => {
+            setTitle(postInfo.title);
+            setContent(postInfo.content);
+            setSummary(postInfo.summary);
+        });
+      });
+    }, [])
+    
 
     async function updatePost(ev) {
         ev.preventDefault();
@@ -32,7 +44,7 @@ const EditPost = () => {
     }
 
   if(redirect) {
-        return <Navigate to={'/post/'  + id} />
+        return <Navigate to={'/post/' + id} />
     }
 
   return (
