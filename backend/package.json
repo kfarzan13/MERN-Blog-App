@@ -9,5 +9,24 @@
     "mongoose": "^7.2.1",
     "multer": "^1.4.5-lts.1",
     "nodemon": "^2.0.22"
-  }
+  },
+  "name": "blog-karo",
+  "version": "1.0.0",
+  "description": "This is the backend of blog-karo app.",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kfarzan13/MERN-Blog-App.git#main"
+  },
+  "author": "Farzan Khan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kfarzan13/MERN-Blog-App/issues"
+  },
+  "homepage": "https://github.com/kfarzan13/MERN-Blog-App/tree/main#readme"
 }

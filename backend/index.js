@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use('/uploads', express.static(__dirname + '/uploads'));
 
-mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser : true })
+mongoose.connect(process.env.DATABASE, { useNewUrlParser : true })
 .then( () => console.log("MongoDB is connected"))
 .catch ( (err) => console.log(err.message))
 
@@ -132,4 +132,4 @@ app.put('/post', uploadMiddleware.single('file') , async (req, res) => {
     });
 })
 
-app.listen(process.env.PORT);
+app.listen(process.env.PORT || 4000);
